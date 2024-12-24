@@ -10,9 +10,11 @@ import {
     faSignOut,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
+import routesConfig from '~/config/routes';
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
@@ -94,7 +96,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <img src={images.logo} alt="Tiktok" />
+                <Link to={routesConfig.home} className={cx('logo-link')}>
+                    <img src={images.logo} alt="Tiktok" />
+                </Link>
 
                 <Search />
 
@@ -130,7 +134,6 @@ function Header() {
                                 className={cx('user-avatar')}
                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3Ujhs5yRznMm0TEgq4EKknBxf_uZuSXJPxR6wZA-rRl7khelDg_u5bkl_Y7fxtjooHzY&usqp=CAU"
                                 alt="Nguyen Van A"
-                                // fallback="https://fullstack.edu.vn/assets/f8-icon-lV2rGpF0.png"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
